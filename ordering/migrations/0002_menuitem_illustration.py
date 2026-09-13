@@ -4,15 +4,24 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('ordering', '0001_initial'),
+        ("ordering", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='menuitem',
-            name='illustration',
-            field=models.CharField(choices=[('roll', 'Roll'), ('nigiri', 'Nigiri'), ('edamame', 'Edamame'), ('soup', 'Soup'), ('tea', 'Tea')], default='roll', max_length=12),
+            model_name="menuitem",
+            name="illustration",
+            field=models.CharField(
+                choices=[
+                    ("roll", "Roll"),
+                    ("nigiri", "Nigiri"),
+                    ("edamame", "Edamame"),
+                    ("soup", "Soup"),
+                    ("tea", "Tea"),
+                ],
+                default="roll",
+                max_length=12,
+            ),
         ),
     ]
