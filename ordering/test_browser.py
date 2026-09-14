@@ -50,7 +50,8 @@ class BrowserWorkflowTests(StaticLiveServerTestCase):
             page.evaluate("document.documentElement.scrollWidth <= innerWidth"),
             "Horizontal overflow",
         )
-        for img in page.locator("img").all():
+        # Decorative login artwork is intentionally hidden at mobile widths.
+        for img in page.locator("img:visible").all():
             img.scroll_into_view_if_needed()
             expect(img).to_be_visible()
             page.wait_for_function(
