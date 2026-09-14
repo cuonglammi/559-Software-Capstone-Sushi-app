@@ -1,0 +1,19 @@
+{% extends "ordering/base.html" %}{% block title %}Server dashboard{% endblock %}{% block content %}
+<div class="page-heading"><div><p class="eyebrow">DINING ROOM</p><h1>Tonight’s service</h1><p class="muted">Welcome, {{ user.full_name|default:user.username }}. Let’s make it a good one.</p></div><a class="button" href="{% url 'new_session' %}">+ Start table session</a></div>
+<div class="stats">
+    <section class="card">
+        <span class="metric">{{ active_count }}</span><span>Active tables</span>
+    </section>
+    <section class="card">
+        <span class="metric">{{ open_count }}</span><span>Orders in the kitchen</span>
+    </section>
+    <section class="card">
+        <span class="metric">15 min</span><span>Staff inactivity timeout</span>
+    </section>
+</div>
+<div class="section-heading"><h2>Active table sessions</h2><a href="{% url 'tables' %}">Refresh</a></div><div class="session-grid">
+    {% for dining in sessions %}<article class="card"><div class="section-heading"><h2>Table {{ dining.table.number }}</h2><span class="badge">{% if dining.ayce %}AYCE{% else %}À la carte{% endif %}</span></div><p class="muted">{{ dining.customers }} guests · Opened {{ dining.started_at|date:'g:i A' }}<br>Server: {{ dining.server.full_name }}</p><a class="button secondary"
+   href="{% url 'menu' dining.access_token %}"
+   target="_blank"
+   rel="noopener">Open customer menu ↗</a><p class="small muted">Open this link on the table device. Anyone with the link can order for this session.</p><details><summary>Orders ({{ dining.orders.count }})</summary>{% for order in dining.orders.all %}<div class="order-summary"><strong>#{{ order.pk }} · {{ order.get_status_display }}</strong><ul>{% for item in order.items.all %}<li>{{ item.quantity }} × {{ item.name }}{% if item.notes %} — {{ item.notes }}{% endif %}</li>{% endfor %}</ul><span>${{ order.total|floatformat:2 }}</span></div>{% empty %}<p>No orders yet.</p>{% endfor %}</details><form method="post" action="{% url 'end_session' dining.pk %}">{% csrf_token %}<button class="button outline">Close table session</button></form></article>
+{% empty %}<section class="card empty"><h2>Ready for your first guests</h2><p>Start a table session to open the customer menu and begin taking orders.</p><a href="{% url 'new_session' %}" class="button">Start table session</a></section>{% endfor %}</div>{% endblock %}

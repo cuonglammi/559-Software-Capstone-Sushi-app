@@ -1,0 +1,5 @@
+{% extends "ordering/base.html" %}{% load static %}{% block title %}Staff sign in{% endblock %}{% block content %}
+<div class="login-layout"><section class="welcome"><p class="eyebrow">GOOD FOOD. GREAT SERVICE.</p><img class="hero-art"
+     src="{% static 'ordering/roll.svg' %}"
+     alt="Illustration of freshly prepared sushi rolls"><h1>A smoother service<br>starts here.</h1><p>From the first order to the last bite.<br>Keep your dining room and kitchen in sync.</p><div class="tags"><span>Table service</span><span>Live kitchen queue</span></div></section>
+    <section class="card login-card"><p class="eyebrow">WELCOME BACK</p><h2>Staff sign in</h2><p class="muted">Use your restaurant account to get started.</p><form method="post">{% csrf_token %}{{ form.as_p }}<button class="button wide">Sign in</button></form><div class="role-hint"><span>Server</span><span>Kitchen staff</span></div><p class="small muted">Need an account? Contact your restaurant manager.</p></section></div>{% endblock %}

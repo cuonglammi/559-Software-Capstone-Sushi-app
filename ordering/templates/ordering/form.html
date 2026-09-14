@@ -1,0 +1,1 @@
+{% extends "ordering/base.html" %}{% block title %}{{ title }}{% endblock %}{% block content %}<a class="back" href="{% url 'dashboard' %}">← Back to dashboard</a><section class="card form-card"><p class="eyebrow">STAFF WORKSPACE</p><h1>{{ title }}</h1><form method="post">{% csrf_token %}{{ form.as_p }}<button class="button">{{ button }}</button></form></section>{% endblock %}
