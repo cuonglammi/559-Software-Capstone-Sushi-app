@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kitchen Queue - Sushi Order</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>🍣 Kitchen Queue</h1>
+    <nav aria-label="Main">
+      <a href="/dashboard.html">Server dashboard</a>
+      <a href="/profile.html">My profile</a>
+      <button id="logout-btn" type="button">Log out</button>
+    </nav>
+  </header>
+  <main>
+    <div id="msg" class="alert" hidden role="alert"></div>
+    <p class="hint">Oldest orders first. The queue refreshes automatically every 5 seconds.</p>
+    <div id="queue" class="queue-grid" aria-live="polite"></div>
+  </main>
+  <footer class="site-footer">Sushi Order Application — Software Capstone</footer>
+  <script src="/js/common.js"></script>
+  <script src="/js/kitchen.js"></script>
+</body>
+</html>

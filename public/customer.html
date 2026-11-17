@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu - Sushi Order</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 id="page-title">🍣 Sushi Order</h1>
+    <nav aria-label="Main">
+      <button id="view-orders-btn" type="button">My orders</button>
+    </nav>
+  </header>
+  <main>
+    <div id="msg" class="alert" hidden role="alert"></div>
+
+    <section id="menu-section">
+      <form class="toolbar" id="filter-form">
+        <div>
+          <label for="search">Search the menu</label>
+          <input id="search" type="search" placeholder="e.g. salmon" autocomplete="off">
+        </div>
+        <div>
+          <label for="category">Category</label>
+          <select id="category"><option value="">All categories</option></select>
+        </div>
+        <div>
+          <label for="sort">Sort by</label>
+          <select id="sort">
+            <option value="">Menu order</option>
+            <option value="priceAsc">Price: low to high</option>
+            <option value="priceDesc">Price: high to low</option>
+            <option value="nameAsc">Name: A to Z</option>
+          </select>
+        </div>
+      </form>
+      <div id="menu" aria-live="polite"></div>
+    </section>
+
+    <section id="orders-section" hidden aria-labelledby="orders-heading">
+      <h2 id="orders-heading">Your orders</h2>
+      <div id="orders"></div>
+      <button class="secondary" id="back-to-menu" type="button">Back to menu</button>
+    </section>
+  </main>
+
+  <div class="cart-bar" id="cart-bar">
+    <span id="cart-summary" aria-live="polite">Cart is empty</span>
+    <span>
+      <button class="secondary" id="review-cart-btn" type="button">Review cart</button>
+      <button class="primary" id="submit-order-btn" type="button" disabled>Submit order</button>
+    </span>
+  </div>
+
+  <dialog id="cart-dialog">
+    <div class="card" id="cart-dialog-body">
+      <h2>Your cart</h2>
+      <div id="cart-items"></div>
+      <p id="cart-total"></p>
+      <button class="primary" id="dialog-submit-btn" type="button">Submit order</button>
+      <button class="secondary" id="dialog-close-btn" type="button">Keep browsing</button>
+    </div>
+  </dialog>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/customer.js"></script>
+</body>
+</html>

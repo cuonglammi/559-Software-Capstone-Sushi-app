@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Server Dashboard - Sushi Order</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>🍣 Server Dashboard</h1>
+    <nav aria-label="Main">
+      <a href="/kitchen.html">Kitchen queue</a>
+      <a href="/profile.html">My profile</a>
+      <button id="logout-btn" type="button">Log out</button>
+    </nav>
+  </header>
+  <main>
+    <div id="msg" class="alert" hidden role="alert"></div>
+
+    <section class="card" aria-labelledby="new-session-heading">
+      <h2 id="new-session-heading">Start a table session</h2>
+      <form id="session-form" class="toolbar" novalidate>
+        <div>
+          <label for="table-select">Table</label>
+          <select id="table-select" required></select>
+        </div>
+        <div>
+          <label for="customers">Guests</label>
+          <input id="customers" type="number" min="1" max="20" value="2" required>
+        </div>
+        <div>
+          <label for="ayce">Dining mode</label>
+          <select id="ayce">
+            <option value="false">À la carte</option>
+            <option value="true">All You Can Eat</option>
+          </select>
+        </div>
+        <div>
+          <button class="primary" type="submit">Open session</button>
+        </div>
+      </form>
+      <p class="hint">Customers can then order at <strong>/t/&lt;table number&gt;</strong> on the table device.</p>
+    </section>
+
+    <section aria-labelledby="active-heading">
+      <h2 id="active-heading">Active sessions</h2>
+      <div id="sessions"></div>
+    </section>
+  </main>
+  <footer class="site-footer">Sushi Order Application — Software Capstone</footer>
+  <script src="/js/common.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

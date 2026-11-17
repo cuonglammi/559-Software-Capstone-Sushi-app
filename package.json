@@ -1,0 +1,25 @@
+{
+  "name": "sushi-order-app",
+  "version": "1.0.0",
+  "description": "Sushi Order Application - web-based in-restaurant ordering system (Software Capstone)",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "seed": "node src/seed.js",
+    "test": "vitest run"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "helmet": "^8.0.0"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.8"
+  }
+}

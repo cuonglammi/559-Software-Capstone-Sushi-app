@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Staff Login - Sushi Order</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>🍣 Sushi Order — Staff</h1>
+  </header>
+  <main>
+    <div class="card narrow">
+      <h2>Staff login</h2>
+      <p class="hint">For Servers and Kitchen Staff. Customers order from the tablet at their table.</p>
+      <div id="msg" class="alert" hidden role="alert"></div>
+      <form id="login-form" novalidate>
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" autocomplete="username" required>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+        <button class="primary" type="submit">Log in</button>
+      </form>
+    </div>
+  </main>
+  <footer class="site-footer">Sushi Order Application — Software Capstone</footer>
+  <script src="/js/common.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>
